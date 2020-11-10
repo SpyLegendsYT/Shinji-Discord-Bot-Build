@@ -7,14 +7,12 @@ const quiz = require(//json file with questions)
 var verzion = "2.0.0"
 var adminastrator = ""
 const ping = require('minecraft-server-util')
-const anilist = require('anilist-node');
-const media = require('anilist-node/lib/media');
-const { anime } = require('anilist-node/lib/lists');
-const Anilist = new anilist()
+
 //in discord bots, there is a prefix that is followed by a command in a way to know if you are referring to the bot
 bot.on('ready', () => {
     console.log('I have become self-aware.')
-    bot.user.setActivity(':help ', { type: "Playing" }.catch); //this line is pretty useless, but it will show the bot's custom status.
+    bot.user.setActivity(':help ', { type: "Playing" }.catch); 
+    //this line is pretty useless, but it will show the bot's custom status.
 })
 bot.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return
@@ -22,7 +20,8 @@ bot.on('message', message => {
 
     switch (args[0]) {
         case 'info':
-            if (args[1] === 'version') { //defines arguments. This will be useful later. An argument is a word, set apart by spaces.
+            if (args[1] === 'version') { 
+                //defines arguments. This will be useful later. An argument is a word, set apart by spaces.
                 //case:info: will send basic information about builds
                 message.channel.send('The current build is Version ' + verzion)
             } else {
@@ -33,10 +32,13 @@ bot.on('message', message => {
             //case:help: it will send basic instructions
             message.reply('A message entitling all commands currently available have been sent to you.')
             const exo = new Discord.MessageEmbed()
-                .setColor('#ffcc00') //This is a yellow hue. 
-                .setTitle('Commands') //This is for the creation of a MessageEmbed, commonly used to display information in a concise area that is easily accessible.
+                .setColor('#ffcc00') 
+                //This is a yellow hue. 
+                .setTitle('Commands') 
+                //This is for the creation of a MessageEmbed, commonly used to display information in a concise area that is easily accessible.
                 .setURL('https://discord.js.org/')
-                .setAuthor('Created by me', 'https://i.stack.imgur.com/VM8eJ.png', 'https://discord.js.org') //the image link is a picture of Shinji from Eva sitting in a chair.
+                .setAuthor('Created by me', 'https://i.stack.imgur.com/VM8eJ.png', 'https://discord.js.org') 
+                //the image link is a picture of Shinji from Eva sitting in a chair.
                 .setDescription('These are the commands that are currently in place for loser bot.')
                 .setThumbnail('https://i.stack.imgur.com/VM8eJ.png')
                 .addFields(
@@ -69,7 +71,7 @@ bot.on('message', message => {
                 const user = message.mentions.users.first();
                 const member = message.guild.member(user);
                 if (user) {
-                    if (`${user.tag}` === 'Wesusa#4163') {
+                    if (`${user.tag}` === '//your name here') { //I made this so you can't be banned from the server if they are utilizing this.
                         adminastrator = 'Yes'
                         if (adminastrator === 'Yes') {
                             message.reply('You cant do that.')
